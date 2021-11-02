@@ -28,7 +28,7 @@ class _BottomNavbarState extends State<BottomNavbar> {
         items: [
           Icon(Icons.search,size: 30,color: color2,),
           Icon(Icons.music_note,size: 30,color: color2,),
-          Icon(Icons.favorite,size: 30,color: color2,),
+          Icon(Icons.person,size: 30,color: color2,),
         ],
         onTap: (index){
           setState(() {
