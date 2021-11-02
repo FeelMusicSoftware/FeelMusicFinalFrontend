@@ -1,6 +1,6 @@
 import 'package:feel_music_final/Components/MusicBoxWidget.dart';
 import 'package:feel_music_final/Components/SearchWidget.dart';
-import 'package:feel_music_final/Pages/FavoritesPage.dart';
+import 'package:feel_music_final/Pages/ProfilePage.dart';
 import 'package:flutter/material.dart';
 
 import '../Colors.dart';
@@ -51,7 +51,7 @@ class _PrincipalPageState extends State<PrincipalPage> {
                         return GestureDetector(
                             onTap: (){
                               print(index);
-                              Navigator.push(context, MaterialPageRoute(builder: (_)=>FavoritesPage()));
+                              Navigator.push(context, MaterialPageRoute(builder: (_)=>ProfilePage()));
                               // _confirmUser.userName = _username.text;
                               // _confirmUser.password = _password.text;
                               // BlocProvider.of<NavigationBloc>(context)
