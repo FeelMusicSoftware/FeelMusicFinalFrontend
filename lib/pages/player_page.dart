@@ -158,14 +158,15 @@ class _PlayerPageState extends State<PlayerPage> {
                       child: Icon(isPlaying?Icons.pause_circle_filled:Icons.play_circle_fill,color: color1,size: size.width*0.2,),behavior: HitTestBehavior.translucent,
                       onTap: (){
                         if(isPlaying){
-                          print("es verdad");
+                          // print("es verdad");
                           pauseLocal();
                           setState(() {
                             isPlaying=false;
                           });
                         }else{
-                          print("es falso");
+                          // print("es falso");
                           playLocal(widget.listMusic[widget.index].path);
+                          this.audioPlayer.setPlaybackRate(1);
                           setState(() {
                             isPlaying=true;
                           });
