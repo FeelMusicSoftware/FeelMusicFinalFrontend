@@ -75,7 +75,7 @@ class _LoginPageState extends State<LoginPage> {
                           ),
                           // obscureText: true,
                           keyboardType: TextInputType.name,
-                          textInputAction: TextInputAction.done,
+                          textInputAction: TextInputAction.next,
                         ),
                       ),
                     ),

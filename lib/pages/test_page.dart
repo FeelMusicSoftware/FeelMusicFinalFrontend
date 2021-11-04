@@ -76,7 +76,9 @@ class _TestPageState extends State<TestPage> {
                     onTap: (){
                       Navigator.push(context, MaterialPageRoute(builder: (_)=>PlayerPage(listMusic, index)));
                     },
-                      child: MusicCard(size.width, size.height*0.11, color4, _artistPart.last, _artist));
+                      child: (index%2==0)?MusicCard(size.width, size.height*0.11, color3, _artistPart.last, _artist):
+                      MusicCard(size.width, size.height*0.11, color4, _artistPart.last, _artist)
+                  );
               }
           ),
         ),
