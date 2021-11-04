@@ -1,6 +1,9 @@
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:feel_music_final/Pages/ProfilePage.dart';
 import 'package:feel_music_final/Pages/ScanPage.dart';
+
+import 'package:feel_music_final/Pages/PrincipalPage.dart';
+import 'package:feel_music_final/Pages/test_page.dart';
 import 'package:flutter/material.dart';
 
 import '../Colors.dart';
@@ -13,11 +16,18 @@ class BottomNavbar extends StatefulWidget {
 
 class _BottomNavbarState extends State<BottomNavbar> {
   int _selectedIndex = 1;
-  final tabs=[
-    ScanPage(),
-    PrincipalPage(),
-    ProfilePage(),
-  ];
+  final _aux = GlobalKey<ScanPageState>();
+  var tabs=[];
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    tabs=[
+      ScanPage(key: _aux),
+      TestPage(),
+      ProfilePage()
+    ];
+  }
   @override
   Widget build(BuildContext context) {
     final Size size = MediaQuery.of(context).size;
@@ -31,6 +41,9 @@ class _BottomNavbarState extends State<BottomNavbar> {
           Icon(Icons.person,size: 30,color: color2,),
         ],
         onTap: (index){
+          if(index!=0){
+            //_aux.currentState!.dispose();
+          }
           setState(() {
             _selectedIndex=index;
           });
