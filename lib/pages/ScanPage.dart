@@ -6,16 +6,27 @@ import 'package:url_launcher/url_launcher.dart';
 import 'package:flutter_speed_dial/flutter_speed_dial.dart';
 
 class ScanPage extends StatefulWidget {
-  const ScanPage({Key? key}) : super(key: key);
 
   @override
-  _ScanPageState createState() => _ScanPageState();
+  ScanPageState createState() => ScanPageState();
 
+  ScanPage({required Key key}):super(key: key);
 }
 
-class _ScanPageState extends State<ScanPage> {
+class ScanPageState extends State<ScanPage> {
   final _homeController = HomeController();
   var mood='';
+  dis() {
+    _homeController.detach();
+    _homeController.dispose();
+  }
+  @override
+  void dispose() {
+    // TODO: implement dispose
+    print("disposeate mrd");
+    dis();
+    super.dispose();
+  }
   _launchURL() async {
     const url = 'https://open.spotify.com/playlist/5bUXKGFhkxufnoAoVc1pAO';
     if (await canLaunch(url)) {
