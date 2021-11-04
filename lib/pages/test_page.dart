@@ -17,11 +17,10 @@ class TestPage extends StatefulWidget {
 
 class _TestPageState extends State<TestPage> {
   // final FlutterAudioQuery? audioQuery = FlutterAudioQuery();
-  AudioPlayer audioPlayer=AudioPlayer();
+  // AudioPlayer audioPlayer=AudioPlayer();
   bool isPlaying=false;
   List<File> listMusic=[];
   var _artist="None";
-  //
   @override
   void initState() {
     super.initState();
@@ -50,23 +49,9 @@ class _TestPageState extends State<TestPage> {
               }
             });
           }
-          // var partes=element.path.split(".");
-          // if(partes.length>0 && partes.last=="mp3" || partes.last=="m4a"){
-          //   listMusic.add(File (element.path));
-          //   print(listMusic.last);
-          // }
-          // print(element.path);
         });
-
       }
     }
-
-  }
-  playLocal(String localPath) async {
-    int result = await audioPlayer.play(localPath, isLocal: true);
-  }
-  pauseLocal() async {
-    int result = await audioPlayer.pause();
   }
 
   @override
@@ -81,7 +66,7 @@ class _TestPageState extends State<TestPage> {
           child: ListView.builder(
               itemCount: listMusic.length,
               itemBuilder:(context,index){
-                print(listMusic.length);
+                // print(listMusic.length);
                 var _songName=listMusic[index].path.split("/");
                 var _artistPart=_songName.last.split("-");
                 if(_artistPart.first!=_artistPart.last){
@@ -90,17 +75,6 @@ class _TestPageState extends State<TestPage> {
                   return GestureDetector(
                     onTap: (){
                       Navigator.push(context, MaterialPageRoute(builder: (_)=>PlayerPage(listMusic, index)));
-
-                      // if(isPlaying){
-                      //   print("es verdad");
-                      //   pauseLocal();
-                      //   isPlaying=false;
-                      // }else{
-                      //   print("es falso");
-                      //   playLocal(listMusic[index].path);
-                      //   isPlaying=true;
-                      // }
-
                     },
                       child: MusicCard(size.width, size.height*0.11, color4, _artistPart.last, _artist));
               }
