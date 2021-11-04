@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:camera/camera.dart';
 import 'package:get/get.dart';
 import 'package:feel_music_final/Features/FaceRecognition/controller/home_controller.dart';
+import 'package:url_launcher/url_launcher.dart';
+
 
 class ScanPage extends StatefulWidget {
   const ScanPage({Key? key}) : super(key: key);
@@ -13,7 +15,23 @@ class ScanPage extends StatefulWidget {
 
 class _ScanPageState extends State<ScanPage> {
   final _homeController = HomeController();
-
+  var mood='';
+  _launchURL() async {
+    const url = 'https://open.spotify.com/playlist/5bUXKGFhkxufnoAoVc1pAO';
+    if (await canLaunch(url)) {
+      await launch(url);
+    } else {
+      throw 'Could not launch $url';
+    }
+  }
+  _launchURLApp() async {
+    var url = _homeController.faceAtMoment == 'happy_face.png' ? 'https://open.spotify.com/playlist/5bUXKGFhkxufnoAoVc1pAO' : 'https://open.spotify.com/playlist/37i9dQZF1DXdZjf8WgcTKM';
+    if (await canLaunch(url) && mood!='') {
+      await launch(url);
+    } else {
+      throw 'Could not launch $url';
+    }
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -22,7 +40,7 @@ class _ScanPageState extends State<ScanPage> {
         title: Text('Estado de animo'),
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: () => null,
+        onPressed: _launchURLApp,
         child: Icon(Icons.done),
       ),
       body: GetBuilder<HomeController>(
@@ -30,6 +48,7 @@ class _ScanPageState extends State<ScanPage> {
         initState: (_) async {
           await _homeController.loadCamera();
           _homeController.startImageStream();
+          mood = _homeController.faceAtMoment!;
         },
         builder: (_) {
           return Container(
