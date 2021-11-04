@@ -4,6 +4,7 @@ import 'package:feel_music_final/Pages/ScanPage.dart';
 import 'package:flutter/material.dart';
 
 import '../Colors.dart';
+import 'PrincipalPage.dart';
 
 class BottomNavbar extends StatefulWidget {
   @override
