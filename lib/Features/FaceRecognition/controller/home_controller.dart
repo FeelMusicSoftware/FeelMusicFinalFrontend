@@ -9,6 +9,12 @@ import 'package:feel_music_final/Features/FaceRecognition/module/face_model.dart
 import 'package:google_ml_kit/google_ml_kit.dart';
 
 class HomeController extends GetxController {
+  @override
+  bool finish = false;
+  void detach() {
+    finish = true;
+    cameraController!.dispose();
+  }
   CameraManager? _cameraManager;
   CameraController? cameraController;
   FaceDetetorController? _faceDetect;
@@ -24,7 +30,9 @@ class HomeController extends GetxController {
 
   Future<void> loadCamera() async {
     cameraController = await _cameraManager?.load();
-    update();
+    if(!finish){
+      update();
+    }
   }
 
   Future<void> startImageStream() async {
@@ -89,7 +97,9 @@ class HomeController extends GetxController {
       label = 'Cara no detectada';
     }
     _isDetecting = false;
-    update();
+    if(!finish){
+      update();
+    }
   }
 
   String detectSmile(smileProb) {
