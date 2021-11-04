@@ -3,6 +3,8 @@ import 'dart:io';
 
 import 'package:audioplayers/audioplayers.dart';
 import 'package:feel_music_final/Colors.dart';
+import 'package:feel_music_final/Components/MusicCard.dart';
+import 'package:feel_music_final/Components/music_box_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:permission_handler/permission_handler.dart';
@@ -55,12 +57,29 @@ class _TestPageState extends State<TestPage> {
     }
 
   }
+  playLocal(String localPath) async {
+    int result = await audioPlayer.play(localPath, isLocal: true);
+  }
 
   @override
   Widget build(BuildContext context) {
+    final Size size = MediaQuery.of(context).size;
     return Scaffold(
       backgroundColor: color4,
-      body: Container(),
+      body: SingleChildScrollView(
+        child: Container(
+          height: size.height,
+          width: size.width,
+          child: ListView.builder(
+              itemCount: listMusic.length,
+              itemBuilder:(context,index){
+                print(listMusic.length);
+                var _songName=listMusic[index].path.split("/");
+                  return MusicCard(size.width, size.height*0.11, color4, _songName.last, "prueba");
+              }
+          ),
+        ),
+      ),
     );
   }
 }

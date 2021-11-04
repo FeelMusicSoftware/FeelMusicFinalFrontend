@@ -1,7 +1,12 @@
+import 'package:audioplayers/audioplayers.dart';
 import 'package:flutter/material.dart';
 
 class MusicFile extends StatefulWidget {
-  @override
+ AudioPlayer audioPlayer;
+
+ MusicFile(this.audioPlayer);
+
+ @override
   _MusicFileState createState() => _MusicFileState();
 }
 
@@ -16,6 +21,17 @@ class _MusicFileState extends State<MusicFile> {
     Icons.play_circle_fill,
     Icons.pause_circle_filled,
   ];
+  @override
+  void initState() {
+    super.initState();
+    this.widget.audioPlayer.onDurationChanged.listen((event) {setState(() {
+      _duration=event;
+    });});
+    this.widget.audioPlayer.onAudioPositionChanged.listen((event) {setState(() {
+      _position=event;
+    });});
+
+  }
   @override
   Widget build(BuildContext context) {
     return Container();
