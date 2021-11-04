@@ -1,11 +1,6 @@
-
-
 import 'dart:io';
-
 import 'package:audioplayers/audioplayers.dart';
 import 'package:flutter/material.dart';
-
-
 import '../Colors.dart';
 class PlayerPage extends StatefulWidget {
   List<File> listMusic;
@@ -14,7 +9,6 @@ class PlayerPage extends StatefulWidget {
   PlayerPage(this.listMusic,this.index); // PlayerPage({required this.listMusic,}):super(key: key);
   @override
   _PlayerPageState createState() => _PlayerPageState();
-  // _PlayerPageState createState() => _PlayerPageState(this.listMusic, this.index);
 }
 
 class _PlayerPageState extends State<PlayerPage> {
@@ -25,7 +19,6 @@ class _PlayerPageState extends State<PlayerPage> {
   double minimunValue=0.0,maximunValue=0.0, currentValue=0.0;
   bool isPlaying=false;String _artist="None";
   var _songName;var _artistPart;
-  // int newIndex=index;
 
   @override
   void initState() {
@@ -42,12 +35,15 @@ class _PlayerPageState extends State<PlayerPage> {
     setSong();
 
   }
+
   playLocal(String localPath) async {
     int result = await audioPlayer.play(localPath, isLocal: true);
   }
+
   pauseLocal() async {
     int result = await audioPlayer.pause();
   }
+
   void setSong(){
     setState(() {
       _songName=widget.listMusic[widget.index].path.split("/");
@@ -57,8 +53,6 @@ class _PlayerPageState extends State<PlayerPage> {
       }
     });
   }
-
-
 
   String getDuration(double value){
     Duration duration=Duration(milliseconds: value.round());
