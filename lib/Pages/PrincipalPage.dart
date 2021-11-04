@@ -1,5 +1,6 @@
 import 'package:feel_music_final/Components/MusicBoxWidget.dart';
 import 'package:feel_music_final/Components/SearchWidget.dart';
+import 'package:feel_music_final/Models/User.dart';
 import 'package:feel_music_final/Pages/ProfilePage.dart';
 import 'package:flutter/material.dart';
 
@@ -14,6 +15,7 @@ class _PrincipalPageState extends State<PrincipalPage> {
   List<String> _images=["assets/images/img1.jpg","assets/images/img2.jpg","assets/images/img3.jpeg","assets/images/img4.jpg","assets/images/img1.jpg","assets/images/img2.jpg","assets/images/img3.jpeg","assets/images/img4.jpg"];
   List<String> _songs=["Believer","Natural","Jamas","Pink","Believer","Natural","Jamas","Pink"];
   List<String> _artist=["Imagine Dragons","Imagine Dragons","Camilo Cesto","Aerosmith","Imagine Dragons","Imagine Dragons","Camilo Cesto","Aerosmith"];
+  User _user=User();
   @override
   Widget build(BuildContext context) {
     final Size size = MediaQuery.of(context).size;
@@ -51,7 +53,7 @@ class _PrincipalPageState extends State<PrincipalPage> {
                         return GestureDetector(
                             onTap: (){
                               print(index);
-                              Navigator.push(context, MaterialPageRoute(builder: (_)=>ProfilePage()));
+                              //Navigator.push(context, MaterialPageRoute(builder: (_)=>ProfilePage(_user)));
                               // _confirmUser.userName = _username.text;
                               // _confirmUser.password = _password.text;
                               // BlocProvider.of<NavigationBloc>(context)

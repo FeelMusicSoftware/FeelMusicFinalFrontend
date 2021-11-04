@@ -28,11 +28,12 @@ class UserRepository {
         return true;
       }
       else{
+        print(response.body);
         return false;
       }
     }
     catch(e){
-      print(e);
+      print(" blallalsl");
       return false;
     }
   }
@@ -132,40 +133,101 @@ class UserRepository {
   // }
 
 
-  // Future<bool> signup(User user,LoginRequest loginRequest)async {
-  //   try{
-  //     var url= directionUrl + "user/signup";
-  //     final response = await http.post(Uri.parse(url),
-  //         headers: <String, String>{
-  //           'Content-Type': 'application/json; charset=UTF-8',
-  //         },
-  //         body: jsonEncode(loginRequest.toJson())
-  //     );
-  //     if(response.statusCode==200){
-  //       var urlSignup=directionUrl + "person";
-  //       var body=json.decode(response.body);
-  //       final res = await http.post(Uri.parse(urlSignup),
-  //           headers: <String, String>{
-  //             'Content-Type': 'application/json; charset=UTF-8',
-  //             'Authorization':body["token"],
-  //           },
-  //           body: jsonEncode(user.toJson())
-  //       );
-  //       if(res.statusCode==200){
-  //         return true;
-  //       }
-  //       else{
-  //         return false;
-  //       }
-  //     }
-  //     else{
-  //       return false;
-  //     }
-  //   }
-  //   catch(e){
-  //     print(e);
-  //     return false;
-  //   }
-  // }
+  Future<bool> signup(User user,LoginRequest loginRequest)async {
+     try{
+       var url= directionUrl + "user/signup";
+       final response = await http.post(Uri.parse(url),
+           headers: <String, String>{
+             'Content-Type': 'application/json; charset=UTF-8',
+           },
+           body: jsonEncode(loginRequest.toJson())
+       );
+       if(response.statusCode==200){
+         var urlSignup=directionUrl + "person";
+         var body=json.decode(response.body);
+         final res = await http.post(Uri.parse(urlSignup),
+             headers: <String, String>{
+               'Content-Type': 'application/json; charset=UTF-8',
+               'Authorization':body["token"],
+             },
+             body: jsonEncode(user.toJson())
+         );
+         if(res.statusCode==200){
+           return true;
+         }
+         else{
+           return false;
+         }
+       }
+       else{
+         return false;
+       }
+     }
+     catch(e){
+       print(e);
+       return false;
+     }
+   }
 
+  Future<User?> databyUserId()async {
+    try{
+      User user=User();
+      var url= directionUrl + "user/profile";
+      var token=await Token().getToken();
+      final response = await http.get(Uri.parse(url),
+          headers: <String, String>{
+            'Content-Type': 'application/json; charset=UTF-8',
+            'Authorization': token??''
+          }
+      );
+      var element = jsonDecode(response.body);
+      user.idUser=element['idUser'];
+      user.idPerson=element['idPerson'];
+      user.name=element['name'];
+      user.firstSurname=element['firstSurname'];
+      user.secondSurname=element['secondSurname'];
+      user.phone=element['phone'];
+      user.username=element['username'];
+      user.email=element['email'];
+      user.password=element['password'];
+      print(user.idUser);
+      if(response.statusCode==200){
+        return user;
+      }
+      else{
+        return null;
+      }
+    }
+    catch(e){
+      print(e);
+      return null;
+
+    }
+  }
+
+  Future<bool?> updateUser(User user)async {
+    try{
+      var url= directionUrl + "user";
+      var token=await Token().getToken();
+      final response = await http.put(Uri.parse(url),
+          headers: <String, String>{
+            'Content-Type': 'application/json; charset=UTF-8',
+            //'Authorization': token??''
+          },
+          body: jsonEncode(user.toJson())
+      );
+      print(response.statusCode);
+      if(response.statusCode==200){
+        print("Done Update");
+        //var resPub = jsonDecode(response.body);
+        //var idUser=resPub["idUser"];
+      }
+      else{
+        return false;
+      }
+    }
+    catch(e){
+      print(e);
+    }
+  }
 }

@@ -1,3 +1,4 @@
+import 'package:feel_music_final/Models/User.dart';
 import 'package:feel_music_final/Models/UserMail.dart';
 import 'package:feel_music_final/Pages/CreateAccountPage.dart';
 import 'package:feel_music_final/Repositories/UserRepository.dart';
@@ -16,6 +17,14 @@ class _LoginPageState extends State<LoginPage> {
   UserMail userMail=UserMail();
   bool _confirm=false;
   UserRepository userRepository=new UserRepository();
+  User user=User();
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+
+  }
   @override
   Widget build(BuildContext context) {
     final Size size = MediaQuery.of(context).size;
@@ -134,6 +143,7 @@ class _LoginPageState extends State<LoginPage> {
                         });
                         _confirm= await userRepository.signIn(userMail);
                         if(_confirm){
+
                           Navigator.push(context, MaterialPageRoute(builder: (_)=>BottomNavbar()));
                         }
                         else{
