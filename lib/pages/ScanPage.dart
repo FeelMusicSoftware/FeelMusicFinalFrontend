@@ -44,10 +44,6 @@ class ScanPageState extends State<ScanPage> {
     }
   }
   @override
-  void dispose() {
-    super.dispose();
-  }
-  @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: const Color(0xFf2E4058),
