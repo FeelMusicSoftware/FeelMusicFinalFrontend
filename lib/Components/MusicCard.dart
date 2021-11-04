@@ -20,9 +20,10 @@ class MusicCard extends StatelessWidget {
       width: _width,
       color: _color,
       child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Text(_songName,style: TextStyle(color: color1, fontWeight: FontWeight.bold,fontSize: _width*0.06),),
-          Text(_artistName,style: TextStyle(color: color1,fontSize: _width*0.04 ),),
+          Text(_songName,style: TextStyle(color: color1, fontWeight: FontWeight.bold,fontSize: _width*0.04),),
+          Text(_artistName,style: TextStyle(color: color1,fontSize: _width*0.038 ),),
         ],
       ),
     );
