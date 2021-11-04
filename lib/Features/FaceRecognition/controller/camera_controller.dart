@@ -9,7 +9,7 @@ class CameraManager {
     //Set front camera if available or back if not available
     int position = cameras!.length > 0 ? 1 : 0;
     _controller = CameraController(
-      cameras![0],
+      cameras![position],
       ResolutionPreset.high,
       enableAudio: false,
     );

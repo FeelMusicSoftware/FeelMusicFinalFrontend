@@ -14,7 +14,7 @@ class UserRepository {
   Future<bool> signIn(UserMail userMail )async {
     try{
       var url= directionUrl + "user/signin";
-      print("entro a repo de sigin");
+      // print("entro a repo de sigin");
       final response = await http.post(Uri.parse(url),
           headers: <String, String>{
             'Content-Type': 'application/json; charset=UTF-8',
@@ -23,7 +23,7 @@ class UserRepository {
       );
       if(response.statusCode==200){
         var tok=json.decode(response.body)["token"];
-        print("DoneConfirmUser SIIIIIIIIII");
+        // print("DoneConfirmUser SIIIIIIIIII");
         await Token().setToken(tok);
         return true;
       }
@@ -40,7 +40,7 @@ class UserRepository {
     try {
       String url = directionUrl + "user";
       // User user1 = User();
-      print("llego al repositorio del addUser");
+      // print("llego al repositorio del addUser");
 
       var res = await http.post(Uri.parse(url), //ip for virtualized devices
           headers: <String, String>{
@@ -48,10 +48,10 @@ class UserRepository {
           },
           body: jsonEncode(user.toJson()));
       var user2 = jsonDecode(res.body);
-      print(user2);
+      // print(user2);
       // user1 = User.fromJson(user2);
       if (res.statusCode == 200) {
-        print("DoneCreateUser");
+        // print("DoneCreateUser");
         return true;
       } else {
         return false;

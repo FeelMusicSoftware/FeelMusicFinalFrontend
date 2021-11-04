@@ -1,7 +1,11 @@
 
 import 'dart:io';
 
+import 'package:audioplayers/audioplayers.dart';
 import 'package:feel_music_final/Colors.dart';
+import 'package:feel_music_final/Components/MusicCard.dart';
+import 'package:feel_music_final/Components/music_box_widget.dart';
+import 'package:feel_music_final/Pages/player_page.dart';
 import 'package:flutter/material.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:permission_handler/permission_handler.dart';
@@ -13,26 +17,15 @@ class TestPage extends StatefulWidget {
 
 class _TestPageState extends State<TestPage> {
   // final FlutterAudioQuery? audioQuery = FlutterAudioQuery();
+  // AudioPlayer audioPlayer=AudioPlayer();
+  bool isPlaying=false;
   List<File> listMusic=[];
-  //
+  var _artist="None";
   @override
   void initState() {
     super.initState();
     getSongs();
   }
-  // void getAlbums () async{
-  //   /// getting all albums available on device storage
-  //   List<AlbumInfo>? albumList = await audioQuery!.getAlbums();
-  //
-  //   /// getting all albums available from a specific artist
-  //   // List<AlbumInfo> albums = await audioQuery.getAlbumsFromArtist(artist: artist.name);
-  //   // albums.forEach( (artistAlbum) {
-  //   //   print(artistAlbum); //print all album property values
-  //   // });
-  //   albumList.forEach( (artistAlbum) {
-  //     print(artistAlbum); //print all album property values
-  //   });
-  // }
   void getSongs ()async{
     var status=await Permission.storage.request().isGranted;
     if (status ){
@@ -49,29 +42,45 @@ class _TestPageState extends State<TestPage> {
             folder.listSync().forEach((element) {
               var partes=element.path.split(".");
               if(partes.length>0 && partes.last=="mp3" || partes.last=="m4a"){
-                listMusic.add(File(element.path));
+                setState(() {
+                  listMusic.add(File(element.path));
+                });
                 // print(listMusic.last);
               }
             });
           }
-          // var partes=element.path.split(".");
-          // if(partes.length>0 && partes.last=="mp3" || partes.last=="m4a"){
-          //   listMusic.add(File (element.path));
-          //   print(listMusic.last);
-          // }
-          // print(element.path);
         });
-
       }
     }
-
   }
 
   @override
   Widget build(BuildContext context) {
+    final Size size = MediaQuery.of(context).size;
     return Scaffold(
       backgroundColor: color4,
-      body: Container(),
+      body: SingleChildScrollView(
+        child: Container(
+          height: size.height,
+          width: size.width,
+          child: ListView.builder(
+              itemCount: listMusic.length,
+              itemBuilder:(context,index){
+                // print(listMusic.length);
+                var _songName=listMusic[index].path.split("/");
+                var _artistPart=_songName.last.split("-");
+                if(_artistPart.first!=_artistPart.last){
+                  _artist=_artistPart.first;
+                }
+                  return GestureDetector(
+                    onTap: (){
+                      Navigator.push(context, MaterialPageRoute(builder: (_)=>PlayerPage(listMusic, index)));
+                    },
+                      child: MusicCard(size.width, size.height*0.11, color4, _artistPart.last, _artist));
+              }
+          ),
+        ),
+      ),
     );
   }
 }

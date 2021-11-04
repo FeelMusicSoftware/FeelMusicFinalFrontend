@@ -1,4 +1,4 @@
-import 'package:feel_music_final/Components/MusicBoxWidget.dart';
+import 'package:feel_music_final/Components/music_box_widget.dart';
 import 'package:feel_music_final/Components/SearchWidget.dart';
 import 'package:feel_music_final/Pages/ProfilePage.dart';
 import 'package:flutter/material.dart';
