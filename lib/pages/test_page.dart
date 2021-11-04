@@ -1,6 +1,7 @@
 
 import 'dart:io';
 
+import 'package:audioplayers/audioplayers.dart';
 import 'package:feel_music_final/Colors.dart';
 import 'package:flutter/material.dart';
 import 'package:path_provider/path_provider.dart';
@@ -13,6 +14,7 @@ class TestPage extends StatefulWidget {
 
 class _TestPageState extends State<TestPage> {
   // final FlutterAudioQuery? audioQuery = FlutterAudioQuery();
+  AudioPlayer audioPlayer=AudioPlayer();
   List<File> listMusic=[];
   //
   @override
@@ -20,19 +22,6 @@ class _TestPageState extends State<TestPage> {
     super.initState();
     getSongs();
   }
-  // void getAlbums () async{
-  //   /// getting all albums available on device storage
-  //   List<AlbumInfo>? albumList = await audioQuery!.getAlbums();
-  //
-  //   /// getting all albums available from a specific artist
-  //   // List<AlbumInfo> albums = await audioQuery.getAlbumsFromArtist(artist: artist.name);
-  //   // albums.forEach( (artistAlbum) {
-  //   //   print(artistAlbum); //print all album property values
-  //   // });
-  //   albumList.forEach( (artistAlbum) {
-  //     print(artistAlbum); //print all album property values
-  //   });
-  // }
   void getSongs ()async{
     var status=await Permission.storage.request().isGranted;
     if (status ){
