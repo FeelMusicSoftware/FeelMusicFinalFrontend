@@ -40,10 +40,6 @@ class _ProfilePageState extends State<ProfilePage> {
       username.text=user.username.toString();
       email.text=user.email.toString();
       password.text=user.password.toString();
-      print("paswword en usuario AAAAAA: ");
-      print(password.text);
-      print("paswword en usuario AAAAAAbbbbbb: ");
-      print(user.password.toString());
     });
   }
 
@@ -531,10 +527,10 @@ class _ProfilePageState extends State<ProfilePage> {
       user.username=username.text;
       user.email=email.text;
       user.password=password.text;
-      print("paswword en usuario: ");
-      print(user.password);
-      print("paswword datos: ");
-      print(password.text);
+      //print("paswword en usuario: ");
+      //print(user.password);
+      //print("paswword datos: ");
+      //print(password.text);
 
     }else{
       aux = false;
