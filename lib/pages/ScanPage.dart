@@ -3,7 +3,7 @@ import 'package:camera/camera.dart';
 import 'package:get/get.dart';
 import 'package:feel_music_final/Features/FaceRecognition/controller/home_controller.dart';
 import 'package:url_launcher/url_launcher.dart';
-
+import 'package:flutter_speed_dial/flutter_speed_dial.dart';
 
 class ScanPage extends StatefulWidget {
   const ScanPage({Key? key}) : super(key: key);
@@ -19,7 +19,7 @@ class _ScanPageState extends State<ScanPage> {
   _launchURL() async {
     const url = 'https://open.spotify.com/playlist/5bUXKGFhkxufnoAoVc1pAO';
     if (await canLaunch(url)) {
-      await launch(url);
+      await launch(url, forceSafariVC: true, forceWebView: true);
     } else {
       throw 'Could not launch $url';
     }
@@ -43,10 +43,23 @@ class _ScanPageState extends State<ScanPage> {
       appBar: AppBar(
         title: Text('Estado de animo'),
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _launchURLApp,
-        child: Icon(Icons.done),
-      ),
+      floatingActionButton: SpeedDial(
+          icon: Icons.done,
+          backgroundColor: Colors.deepPurple,
+          children: [
+            SpeedDialChild(
+              child: Icon(Icons.list),
+              label: 'Listar',
+              backgroundColor: Colors.deepPurpleAccent,
+              onTap: _launchURL,
+            ),
+            SpeedDialChild(
+              child: Icon(Icons.play_arrow),
+              label: 'Reproducir',
+              backgroundColor: Colors.deepPurpleAccent,
+              onTap: _launchURLApp,
+            ),
+          ]),
       body: GetBuilder<HomeController>(
         init: _homeController,
         initState: (_) async {
