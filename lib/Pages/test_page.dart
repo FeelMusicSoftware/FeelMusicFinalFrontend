@@ -50,7 +50,7 @@ class _TestPageState extends State<TestPage> {
               var partes=element.path.split(".");
               if(partes.length>0 && partes.last=="mp3" || partes.last=="m4a"){
                 listMusic.add(File(element.path));
-                print(listMusic.last);
+                // print(listMusic.last);
               }
             });
           }
