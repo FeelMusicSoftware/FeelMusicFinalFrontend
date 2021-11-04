@@ -10,7 +10,7 @@ class CameraManager {
     int position = cameras!.length > 0 ? 1 : 0;
     _controller = CameraController(
       cameras![position],
-      ResolutionPreset.medium,
+      ResolutionPreset.high,
       enableAudio: false,
     );
     await _controller?.initialize();
