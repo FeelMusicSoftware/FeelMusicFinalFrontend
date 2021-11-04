@@ -5,6 +5,7 @@ import 'package:audioplayers/audioplayers.dart';
 import 'package:feel_music_final/Colors.dart';
 import 'package:feel_music_final/Components/MusicCard.dart';
 import 'package:feel_music_final/Components/music_box_widget.dart';
+import 'package:feel_music_final/Pages/player_page.dart';
 import 'package:flutter/material.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:permission_handler/permission_handler.dart';
@@ -17,7 +18,9 @@ class TestPage extends StatefulWidget {
 class _TestPageState extends State<TestPage> {
   // final FlutterAudioQuery? audioQuery = FlutterAudioQuery();
   AudioPlayer audioPlayer=AudioPlayer();
+  bool isPlaying=false;
   List<File> listMusic=[];
+  var _artist="None";
   //
   @override
   void initState() {
@@ -40,7 +43,9 @@ class _TestPageState extends State<TestPage> {
             folder.listSync().forEach((element) {
               var partes=element.path.split(".");
               if(partes.length>0 && partes.last=="mp3" || partes.last=="m4a"){
-                listMusic.add(File(element.path));
+                setState(() {
+                  listMusic.add(File(element.path));
+                });
                 // print(listMusic.last);
               }
             });
@@ -60,6 +65,9 @@ class _TestPageState extends State<TestPage> {
   playLocal(String localPath) async {
     int result = await audioPlayer.play(localPath, isLocal: true);
   }
+  pauseLocal() async {
+    int result = await audioPlayer.pause();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -75,7 +83,26 @@ class _TestPageState extends State<TestPage> {
               itemBuilder:(context,index){
                 print(listMusic.length);
                 var _songName=listMusic[index].path.split("/");
-                  return MusicCard(size.width, size.height*0.11, color4, _songName.last, "prueba");
+                var _artistPart=_songName.last.split("-");
+                if(_artistPart.first!=_artistPart.last){
+                  _artist=_artistPart.first;
+                }
+                  return GestureDetector(
+                    onTap: (){
+                      Navigator.push(context, MaterialPageRoute(builder: (_)=>PlayerPage(listMusic, index)));
+
+                      // if(isPlaying){
+                      //   print("es verdad");
+                      //   pauseLocal();
+                      //   isPlaying=false;
+                      // }else{
+                      //   print("es falso");
+                      //   playLocal(listMusic[index].path);
+                      //   isPlaying=true;
+                      // }
+
+                    },
+                      child: MusicCard(size.width, size.height*0.11, color4, _artistPart.last, _artist));
               }
           ),
         ),
