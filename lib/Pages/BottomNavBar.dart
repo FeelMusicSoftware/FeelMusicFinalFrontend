@@ -1,23 +1,16 @@
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
-import 'package:feel_music_final/Models/User.dart';
-import 'package:feel_music_final/Models/UserMail.dart';
 import 'package:feel_music_final/Pages/ProfilePage.dart';
-import 'package:feel_music_final/Pages/PrincipalPage.dart';
 import 'package:feel_music_final/Pages/ScanPage.dart';
 import 'package:flutter/material.dart';
 
 import '../Colors.dart';
 
 class BottomNavbar extends StatefulWidget {
-  //User? _user;
-  //BottomNavbar(this._user);
-
   @override
   _BottomNavbarState createState() => _BottomNavbarState();
 }
 
 class _BottomNavbarState extends State<BottomNavbar> {
-  //User user=User();
   int _selectedIndex = 1;
   final tabs=[
     ScanPage(),
