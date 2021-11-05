@@ -165,6 +165,7 @@ class _PlayerPageState extends State<PlayerPage> {
                           });
                         }else{
                           print("es falso");
+                          this.audioPlayer.setPlaybackRate(1);
                           playLocal(widget.listMusic[widget.index].path);
                           setState(() {
                             isPlaying=true;

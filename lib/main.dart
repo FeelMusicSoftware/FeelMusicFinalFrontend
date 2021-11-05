@@ -1,5 +1,5 @@
 import 'package:feel_music_final/Pages/BottomNavBar.dart';
-import 'package:feel_music_final/Pages/LoginPage.dart';
+import 'package:feel_music_final/Pages/login_page.dart';
 import 'package:flutter/material.dart';
 
 void main() {

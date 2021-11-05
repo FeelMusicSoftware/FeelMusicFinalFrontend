@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 
 import '../Colors.dart';
 import 'BottomNavBar.dart';
-import 'LoginPage.dart';
+import 'login_page.dart';
 
 class CreateAccountPage extends StatefulWidget {
   @override
