@@ -18,6 +18,7 @@ class ScanPage extends StatefulWidget {
 class ScanPageState extends State<ScanPage> {
   final _homeController = HomeController();
   var mood='';
+  var face='';
   dis() {
     _homeController.detach();
     _homeController.dispose();
@@ -38,11 +39,11 @@ class ScanPageState extends State<ScanPage> {
     }
   }
   _launchURLApp() async {
-    var url = _homeController.faceAtMoment == 'happy_face.png' ? 'https://open.spotify.com/playlist/5bUXKGFhkxufnoAoVc1pAO' : 'https://open.spotify.com/playlist/37i9dQZF1DXdZjf8WgcTKM';
+    var url = face == 'happy_face.png' ? 'https://open.spotify.com/playlist/5bUXKGFhkxufnoAoVc1pAO' : 'https://open.spotify.com/playlist/37i9dQZF1DXdZjf8WgcTKM';
     if (await canLaunch(url) && mood!='') {
       await launch(url);
     } else {
-      throw 'Could not launch $url';
+      await launch('https://play.google.com/store/apps/details?id=com.spotify.music&hl=es_BO&gl=US');
     }
   }
   @override
@@ -78,6 +79,9 @@ class ScanPageState extends State<ScanPage> {
       floatingActionButton: SpeedDial(
           icon: Icons.done,
           backgroundColor: Colors.deepPurple,
+          onOpen: () => {
+            face = _homeController.faceAtMoment!
+          },
           children: [
             SpeedDialChild(
               child: Icon(Icons.list),
