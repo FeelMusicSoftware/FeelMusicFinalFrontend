@@ -5,6 +5,8 @@ import 'package:feel_music_final/Features/FaceRecognition/controller/home_contro
 import 'package:url_launcher/url_launcher.dart';
 import 'package:flutter_speed_dial/flutter_speed_dial.dart';
 
+import '../Colors.dart';
+
 class ScanPage extends StatefulWidget {
 
   @override
@@ -45,10 +47,18 @@ class ScanPageState extends State<ScanPage> {
   }
   @override
   Widget build(BuildContext context) {
+    final Size size = MediaQuery.of(context).size;
     return Scaffold(
       backgroundColor: const Color(0xFf2E4058),
       appBar: AppBar(
-        title: Text('Estado de animo'),
+        toolbarHeight: size.height * 0.08,
+        backgroundColor: color3,
+        elevation: 5,
+        title: Text(
+          "FeelMusic",
+          style: TextStyle(fontSize: size.height * 0.036,color: color1),
+        ),
+        centerTitle: true,
       ),
       floatingActionButton: SpeedDial(
           icon: Icons.done,
