@@ -2,7 +2,7 @@ import 'package:feel_music_final/Colors.dart';
 import 'package:feel_music_final/Models/User.dart';
 import 'package:feel_music_final/Models/UserMail.dart';
 import 'package:feel_music_final/Pages/BottomNavBar.dart';
-import 'package:feel_music_final/Repositories/UserRepository.dart';
+import 'package:feel_music_final/Repositories/user_repository.dart';
 import 'package:flutter/material.dart';
 //import 'package:flutter_phone_direct_caller/flutter_phone_direct_caller.dart';
 

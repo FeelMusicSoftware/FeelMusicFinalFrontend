@@ -1,6 +1,6 @@
 import 'package:feel_music_final/Models/User.dart';
 import 'package:feel_music_final/Models/UserMail.dart';
-import 'package:feel_music_final/Repositories/UserRepository.dart';
+import 'package:feel_music_final/Repositories/user_repository.dart';
 import 'package:flutter/material.dart';
 
 import '../Colors.dart';
@@ -327,7 +327,7 @@ class _CreateAccountPageState extends State<CreateAccountPage> {
                         print(_user.email);
                         print(confirmUser);
                         if(confirmUser){
-                          Navigator.push(context, MaterialPageRoute(builder: (_)=>BottomNavbar()));
+                          Navigator.push(context, MaterialPageRoute(builder: (_)=>LoginPage()));
                         }
                         else{
                           Navigator.push(context, MaterialPageRoute(builder: (_)=>LoginPage()));

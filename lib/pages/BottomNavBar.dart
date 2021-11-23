@@ -2,12 +2,12 @@ import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:feel_music_final/Pages/ProfilePage.dart';
 import 'package:feel_music_final/Pages/ScanPage.dart';
 
-import 'package:feel_music_final/Pages/PrincipalPage.dart';
+import 'package:feel_music_final/Pages/principal_page.dart';
 import 'package:feel_music_final/Pages/test_page.dart';
 import 'package:flutter/material.dart';
 
 import '../Colors.dart';
-import 'PrincipalPage.dart';
+import 'principal_page.dart';
 
 class BottomNavbar extends StatefulWidget {
   @override

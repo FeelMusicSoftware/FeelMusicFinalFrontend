@@ -25,6 +25,9 @@ class UserRepository {
         var tok=json.decode(response.body)["token"];
         // print("DoneConfirmUser SIIIIIIIIII");
         await Token().setToken(tok);
+        // var log=await Token().getToken();
+        // print("el token es");
+        // print(log);
         return true;
       }
       else{
@@ -33,7 +36,7 @@ class UserRepository {
       }
     }
     catch(e){
-      print(" blallalsl");
+      print(e);
       return false;
     }
   }
@@ -53,6 +56,10 @@ class UserRepository {
       // user1 = User.fromJson(user2);
       if (res.statusCode == 200) {
         // print("DoneCreateUser");
+        var tok=json.decode(res.body)["token"];
+        // print("DoneConfirmUser SIIIIIIIIII");
+        // var tok="logueado";
+        await Token().setToken(tok);
         return true;
       } else {
         return false;

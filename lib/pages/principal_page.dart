@@ -21,16 +21,16 @@ class _PrincipalPageState extends State<PrincipalPage> {
     final Size size = MediaQuery.of(context).size;
     return SafeArea(
         child: Scaffold(
-          // appBar: AppBar(
-          //   toolbarHeight: size.height * 0.08,
-          //   backgroundColor: color3,
-          //   elevation: 5,
-          //   title: Text(
-          //     "Playlists",
-          //     style: TextStyle(fontSize: size.height * 0.036,color: color1),
-          //   ),
-          //   centerTitle: true,
-          // ),
+          appBar: AppBar(
+            toolbarHeight: size.height * 0.08,
+            backgroundColor: color3,
+            elevation: 5,
+            title: Text(
+              "FeelMusic",
+              style: TextStyle(fontSize: size.height * 0.036,color: color1),
+            ),
+            centerTitle: true,
+          ),
           backgroundColor: color4,
           body: SingleChildScrollView(
             child: Container(

@@ -1,7 +1,7 @@
 import 'package:feel_music_final/Models/User.dart';
 import 'package:feel_music_final/Models/UserMail.dart';
 import 'package:feel_music_final/Pages/CreateAccountPage.dart';
-import 'package:feel_music_final/Repositories/UserRepository.dart';
+import 'package:feel_music_final/Repositories/user_repository.dart';
 import 'package:flutter/material.dart';
 
 import '../Colors.dart';
