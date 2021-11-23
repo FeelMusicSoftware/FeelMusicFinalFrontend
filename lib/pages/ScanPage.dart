@@ -51,12 +51,27 @@ class ScanPageState extends State<ScanPage> {
     return Scaffold(
       backgroundColor: const Color(0xFf2E4058),
       appBar: AppBar(
-        toolbarHeight: size.height * 0.08,
+        // toolbarHeight: size.height * 0.08,
         backgroundColor: color3,
         elevation: 5,
-        title: Text(
-          "FeelMusic",
-          style: TextStyle(fontSize: size.height * 0.036,color: color1),
+        title: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Text(
+              "FeelMusic",
+              style: TextStyle(fontSize: size.height * 0.036,color: color1),
+            ),
+            SizedBox(width: size.width*0.03,),
+            ClipRRect(
+              borderRadius: BorderRadius.circular(50.0),
+              child: Image.asset(
+                  "assets/images/headphones.jpg",
+                  width: size.width*0.13,
+                  height: size.width*0.13,
+                  fit:BoxFit.fill
+              ),
+            )
+          ],
         ),
         centerTitle: true,
       ),

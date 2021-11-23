@@ -4,6 +4,7 @@ import 'package:feel_music_final/Colors.dart';
 import 'package:feel_music_final/Components/MusicCard.dart';
 import 'package:feel_music_final/Components/music_box_widget.dart';
 import 'package:feel_music_final/Pages/player_page.dart';
+import 'package:feel_music_final/pages/loading_page.dart';
 import 'package:flutter/material.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:permission_handler/permission_handler.dart';
@@ -55,14 +56,30 @@ class _TestPageState extends State<TestPage> {
   @override
   Widget build(BuildContext context) {
     final Size size = MediaQuery.of(context).size;
+    // return listMusic.isNotEmpty?
     return Scaffold(
       appBar: AppBar(
         // toolbarHeight: size.height * 0.08,
         backgroundColor: color3,
         elevation: 5,
-        title: Text(
-          "FeelMusic",
-          style: TextStyle(fontSize: size.height * 0.036,color: color1),
+        title: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Text(
+              "FeelMusic",
+              style: TextStyle(fontSize: size.height * 0.036,color: color1),
+            ),
+            SizedBox(width: size.width*0.03,),
+            ClipRRect(
+              borderRadius: BorderRadius.circular(50.0),
+              child: Image.asset(
+                  "assets/images/headphones.jpg",
+                  width: size.width*0.13,
+                  height: size.width*0.13,
+                  fit:BoxFit.fill
+              ),
+            )
+          ],
         ),
         centerTitle: true,
       ),
@@ -83,13 +100,48 @@ class _TestPageState extends State<TestPage> {
                     onTap: (){
                       Navigator.push(context, MaterialPageRoute(builder: (_)=>PlayerPage(listMusic, index)));
                     },
-                      child: (index%2==0)?MusicCard(size.width, size.height*0.11, color3, _artistPart.last, _artist):
-                      MusicCard(size.width, size.height*0.11, color4, _artistPart.last, _artist)
+                      child: (index%2==0)?MusicCard(size.width, size.height*0.11, color4, _artistPart.last, _artist):
+                      MusicCard(size.width, size.height*0.11, color3, _artistPart.last, _artist)
                   );
               }
-          ),
+          )
         ),
       ),
     );
+    //     :listMusic.isEmpty?Scaffold(
+    //   appBar: AppBar(
+    //     // toolbarHeight: size.height * 0.08,
+    //     backgroundColor: color3,
+    //     elevation: 5,
+    //     title: Row(
+    //       mainAxisAlignment: MainAxisAlignment.center,
+    //       children: [
+    //         Text(
+    //           "FeelMusic",
+    //           style: TextStyle(fontSize: size.height * 0.036,color: color1),
+    //         ),
+    //         SizedBox(width: size.width*0.03,),
+    //         ClipRRect(
+    //           borderRadius: BorderRadius.circular(50.0),
+    //           child: Image.asset(
+    //               "assets/images/headphones.jpg",
+    //               width: size.width*0.13,
+    //               height: size.width*0.13,
+    //               fit:BoxFit.fill
+    //           ),
+    //         )
+    //       ],
+    //     ),
+    //     centerTitle: true,
+    //   ),
+    //   backgroundColor: color4,
+    //   body:  Container(
+    //         height: size.height*0.81,
+    //         width: size.width,
+    //         // color: color12,
+    //         child: Center(child: Text("El dispositivo no tiene canciones",style: TextStyle(color: color1,fontSize: size.width*0.05),))
+    //       ),
+    // )
+    //     :LoadingPage();
   }
 }
