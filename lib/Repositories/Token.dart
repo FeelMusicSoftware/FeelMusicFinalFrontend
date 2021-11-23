@@ -1,3 +1,7 @@
+// ignore: file_names
+import 'dart:convert';
+
+import 'package:feel_music_final/Models/User.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class Token {
@@ -27,5 +31,25 @@ class Token {
       print(e);
       return false;
     }
+  }
+}
+class GlobalUser{
+  // User user=new User();
+  static read() async {
+    // User user = User.fromJson(await sharedPref.read("user"));
+    final prefs = await SharedPreferences.getInstance();
+    final user2=User.fromJson(jsonDecode(prefs.getString("user")??""));
+    return user2;
+  }
+
+  static  save(User user) async {
+    final prefs = await SharedPreferences.getInstance();
+    prefs.setString("user", json.encode(user));
+    // print("generated Json $prefs");
+  }
+
+  static remove() async {
+    final prefs = await SharedPreferences.getInstance();
+    prefs.remove("user");
   }
 }

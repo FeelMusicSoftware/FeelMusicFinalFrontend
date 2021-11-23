@@ -1,6 +1,7 @@
 import 'package:feel_music_final/Models/User.dart';
 import 'package:feel_music_final/Models/UserMail.dart';
 import 'package:feel_music_final/Pages/create_account_page.dart';
+import 'package:feel_music_final/Repositories/Token.dart';
 import 'package:feel_music_final/Repositories/user_repository.dart';
 import 'package:flutter/material.dart';
 
@@ -143,7 +144,13 @@ class _LoginPageState extends State<LoginPage> {
                         });
                         _confirm= await userRepository.signIn(userMail);
                         if(_confirm){
+                          user = (await userRepository.databyUserId())!;
+                          // await GlobalUser.save(user);
+                          // User profile=await GlobalUser.read();
+                          // print("da objeto global");
+                          // print(profile.name);
                           Navigator.of(context).pushNamedAndRemoveUntil('/screen2', (Route<dynamic> route) => false);
+
                           // Navigator.push(context, MaterialPageRoute(builder: (_)=>BottomNavbar()));
                         }
                         else{

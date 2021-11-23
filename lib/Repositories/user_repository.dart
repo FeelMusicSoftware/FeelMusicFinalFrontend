@@ -197,8 +197,13 @@ class UserRepository {
       user.username=element['username'];
       user.email=element['email'];
       user.password=element['password'];
-      print(user.idUser);
+      // print(user.idUser);
       if(response.statusCode==200){
+        await GlobalUser.remove();
+        await GlobalUser.save(user);
+        // print("da objeto global");
+        // User profile=await GlobalUser.read();
+        // print(profile.name);
         return user;
       }
       else{

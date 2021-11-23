@@ -10,19 +10,19 @@ class User {
   String? _password;
 
   User();
-  /*
-  User(
-      this._idUser,
-      this._idPerson,
-      this._name,
-      this._firstSurname,
-      this._secondSurname,
-      this._phone,
-      this._username,
-      this._email,
-      this._password
-      );
-*/
+
+  // User(
+  //     this._idUser,
+  //     this._idPerson,
+  //     this._name,
+  //     this._firstSurname,
+  //     this._secondSurname,
+  //     this._phone,
+  //     this._username,
+  //     this._email,
+  //     this._password
+  //     );
+
   String? get email => _email;
 
   set email(String? value) {
@@ -77,7 +77,7 @@ class User {
     _password = value;
   }
 
-  Map toJson()=>{
+  Map<String, dynamic> toJson()=>{
     'idUser': idUser,
     'idPerson': idPerson,
     'name': name,
@@ -100,4 +100,16 @@ class User {
     email = json['email'];
     password = json['password'];
   }
+  // factory User.fromJson(Map<String, dynamic> parsedJson) {
+  //   return new User(
+  //       name: parsedJson['name'] ?? "",
+  //       age: parsedJson['age'] ?? "");
+  // }
+  //
+  // Map<String, dynamic> toJson() {
+  //   return {
+  //     "name": this.name,
+  //     "age": this.age
+  //   };
+  // }
 }

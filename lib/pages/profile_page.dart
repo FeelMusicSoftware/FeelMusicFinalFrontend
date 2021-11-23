@@ -5,6 +5,7 @@ import 'package:feel_music_final/Models/UserMail.dart';
 import 'package:feel_music_final/Pages/BottomNavBar.dart';
 import 'package:feel_music_final/Repositories/Token.dart';
 import 'package:feel_music_final/Repositories/user_repository.dart';
+import 'package:feel_music_final/pages/loading_page.dart';
 import 'package:feel_music_final/pages/login_page.dart';
 import 'package:flutter/material.dart';
 //import 'package:flutter_phone_direct_caller/flutter_phone_direct_caller.dart';
@@ -65,7 +66,7 @@ class _ProfilePageState extends State<ProfilePage> {
   Widget build(BuildContext context) {
     size=MediaQuery.of(context).size;
     return Scaffold(
-      body: SingleChildScrollView(
+      body: user.name!=null?SingleChildScrollView(
         child: Column(
           children: [
             Container(
@@ -541,7 +542,7 @@ class _ProfilePageState extends State<ProfilePage> {
             )
           ],
         ),
-      ),
+      ):LoadingPage(),
     );
 
   }
