@@ -26,7 +26,6 @@ class ScanPageState extends State<ScanPage> {
   @override
   void dispose() {
     // TODO: implement dispose
-    print("disposeate mrd");
     dis();
     super.dispose();
   }
