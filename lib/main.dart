@@ -47,6 +47,11 @@ class _MyAppState extends State<MyApp> {
       ),
 
       home: log==0?LoadingPage():log==1?BottomNavbar():LoginPage(),
+      routes: <String, WidgetBuilder> {
+        '/screen1': (BuildContext context) => new LoginPage(),
+        '/screen2' : (BuildContext context) => new BottomNavbar(),
+        '/screen3' : (BuildContext context) => new LoadingPage(),
+      },
     );
   }
 }
