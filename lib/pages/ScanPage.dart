@@ -94,7 +94,7 @@ class ScanPageState extends State<ScanPage> {
                     height: 200,
                     color: const Color(0xFf2E4058),
                     child: Image.asset(
-                      'images/${_.faceAtMoment}',
+                      'assets/images/${_.faceAtMoment}',
                       fit: BoxFit.fill,
                     ),
                   ),
