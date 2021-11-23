@@ -115,183 +115,177 @@ class _ProfilePageState extends State<ProfilePage> {
                           ),
                         ),
                         Row(
-                          // mainAxisAlignment: MainAxisAlignment.center,
+                          mainAxisAlignment: MainAxisAlignment.center,
                           children: [
-                            Padding(
-                              padding: EdgeInsets.only(top: size!.height*0.02, left: size!.width*0.2, right: size!.width*0.2),
-                              child: Container(
-                                height: size!.height*0.05,
-                                // color: color12,
-                                child: FlatButton(
-                                  color: color5,
-                                  onPressed: (){
-                                    showDialog(
-                                        context: context,
-                                        barrierDismissible: false,
-                                        builder: (BuildContext context){
-                                          return AlertDialog(
-                                            title: Center(
-                                              child: Text("Actualizar Perfil"),
-                                            ),
-                                            content: SingleChildScrollView(
-                                              child: Container(
-                                                width: 300,
-                                                child: Column(
-                                                  crossAxisAlignment: CrossAxisAlignment.start,
+                            GestureDetector(
+                              onTap: ()async{
+                                showDialog(
+                                    context: context,
+                                    barrierDismissible: false,
+                                    builder: (BuildContext context){
+                                      return AlertDialog(
+                                        title: Center(
+                                          child: Text("Actualizar Perfil"),
+                                        ),
+                                        content: SingleChildScrollView(
+                                          child: Container(
+                                            width: 300,
+                                            child: Column(
+                                              crossAxisAlignment: CrossAxisAlignment.start,
+                                              children: [
+                                                SizedBox(height: 9.0),
+                                                Container(
+                                                  width: 290,
+                                                  height: 48,
+                                                  child: TextField(
+                                                    controller: name,
+                                                    cursorColor: color3,
+                                                    decoration: InputDecoration(
+                                                      hintText: "Nombre",
+                                                      labelText: "Nombre",
+                                                      labelStyle: TextStyle(color: color3, fontSize: 16),
+                                                      enabledBorder: OutlineInputBorder(
+                                                          borderRadius: BorderRadius.all(Radius.circular(7)),
+                                                          borderSide: BorderSide(
+                                                              color: color3,
+                                                              width: 2
+                                                          )
+                                                      ),
+                                                      focusedBorder: OutlineInputBorder(
+                                                        borderRadius: BorderRadius.all(Radius.circular(7)),
+                                                      ),
+                                                    ),
+                                                  ),
+                                                ),
+                                                SizedBox(height: 9.0),
+                                                Container(
+                                                  width: 290,
+                                                  height: 48,
+                                                  child: TextField(
+                                                    controller: firstSurname,
+                                                    cursorColor: color3,
+                                                    decoration: InputDecoration(
+                                                      hintText: "Primer Apellido",
+                                                      labelText: "Primer Apellido",
+                                                      labelStyle: TextStyle(color: color3, fontSize: 16),
+                                                      enabledBorder: OutlineInputBorder(
+                                                          borderRadius: BorderRadius.all(Radius.circular(7)),
+                                                          borderSide: BorderSide(
+                                                              color: color3,
+                                                              width: 2
+                                                          )
+                                                      ),
+                                                      focusedBorder: OutlineInputBorder(
+                                                        borderRadius: BorderRadius.all(Radius.circular(7)),
+                                                      ),
+                                                    ),
+                                                  ),
+                                                ),
+                                                SizedBox(height: 9.0),
+                                                Container(
+                                                  width: 290,
+                                                  height: 48,
+                                                  child: TextField(
+                                                    controller: secondSurname,
+                                                    cursorColor: color3,
+                                                    decoration: InputDecoration(
+                                                      hintText: "Segundo Apellido",
+                                                      labelText: "Segundo Apellido",
+                                                      labelStyle: TextStyle(color: color3, fontSize: 16),
+                                                      enabledBorder: OutlineInputBorder(
+                                                          borderRadius: BorderRadius.all(Radius.circular(7)),
+                                                          borderSide: BorderSide(
+                                                              color: color3,
+                                                              width: 2
+                                                          )
+                                                      ),
+                                                      focusedBorder: OutlineInputBorder(
+                                                        borderRadius: BorderRadius.all(Radius.circular(7)),
+                                                      ),
+                                                    ),
+                                                  ),
+                                                ),
+                                                SizedBox(height: 5.0),
+                                                Container(
+                                                  width: 290,
+                                                  height: 48,
+                                                  child: TextField(
+                                                    controller: phone,
+                                                    cursorColor: color3,
+                                                    decoration: InputDecoration(
+                                                      hintText: "Nro. Celular",
+                                                      labelText: "Nro. Celular",
+                                                      labelStyle: TextStyle(color: color3, fontSize: 16),
+                                                      enabledBorder: OutlineInputBorder(
+                                                          borderRadius: BorderRadius.all(Radius.circular(7)),
+                                                          borderSide: BorderSide(
+                                                              color: color3,
+                                                              width: 2
+                                                          )
+                                                      ),
+                                                      focusedBorder: OutlineInputBorder(
+                                                        borderRadius: BorderRadius.all(Radius.circular(7)),
+                                                      ),
+                                                    ),
+                                                  ),
+                                                ),
+                                                SizedBox(height: 8.0),
+                                                Row(
+                                                  mainAxisAlignment: MainAxisAlignment.center,
                                                   children: [
-                                                    SizedBox(height: 9.0),
-                                                    Container(
-                                                      width: 290,
-                                                      height: 48,
-                                                      child: TextField(
-                                                        controller: name,
-                                                        cursorColor: color3,
-                                                        decoration: InputDecoration(
-                                                          hintText: "Nombre",
-                                                          labelText: "Nombre",
-                                                          labelStyle: TextStyle(color: color3, fontSize: 16),
-                                                          enabledBorder: OutlineInputBorder(
-                                                              borderRadius: BorderRadius.all(Radius.circular(7)),
-                                                              borderSide: BorderSide(
-                                                                  color: color3,
-                                                                  width: 2
-                                                              )
-                                                          ),
-                                                          focusedBorder: OutlineInputBorder(
-                                                            borderRadius: BorderRadius.all(Radius.circular(7)),
-                                                          ),
-                                                        ),
+                                                    Text("Datos de Cuenta",style: TextStyle(fontWeight: FontWeight.bold,fontStyle: FontStyle.italic),),
+                                                  ],
+                                                ),
+                                                SizedBox(height: 9.0),
+                                                Container(
+                                                  width: 290,
+                                                  height: 48,
+                                                  child: TextField(
+                                                    controller: username,
+                                                    cursorColor: color3,
+                                                    decoration: InputDecoration(
+                                                      hintText: "Nombre de Usuario",
+                                                      labelText: "Nombre de Usuario",
+                                                      labelStyle: TextStyle(color: color3, fontSize: 16),
+                                                      enabledBorder: OutlineInputBorder(
+                                                          borderRadius: BorderRadius.all(Radius.circular(7)),
+                                                          borderSide: BorderSide(
+                                                              color: color3,
+                                                              width: 2
+                                                          )
+                                                      ),
+                                                      focusedBorder: OutlineInputBorder(
+                                                        borderRadius: BorderRadius.all(Radius.circular(7)),
                                                       ),
                                                     ),
-                                                    SizedBox(height: 9.0),
-                                                    Container(
-                                                      width: 290,
-                                                      height: 48,
-                                                      child: TextField(
-                                                        controller: firstSurname,
-                                                        cursorColor: color3,
-                                                        decoration: InputDecoration(
-                                                          hintText: "Primer Apellido",
-                                                          labelText: "Primer Apellido",
-                                                          labelStyle: TextStyle(color: color3, fontSize: 16),
-                                                          enabledBorder: OutlineInputBorder(
-                                                              borderRadius: BorderRadius.all(Radius.circular(7)),
-                                                              borderSide: BorderSide(
-                                                                  color: color3,
-                                                                  width: 2
-                                                              )
-                                                          ),
-                                                          focusedBorder: OutlineInputBorder(
-                                                            borderRadius: BorderRadius.all(Radius.circular(7)),
-                                                          ),
-                                                        ),
+                                                  ),
+                                                ),
+                                                SizedBox(height: 5.0),
+                                                Container(
+                                                  width: 290,
+                                                  height: 48,
+                                                  child: TextField(
+                                                    controller: email,
+                                                    cursorColor: color3,
+                                                    keyboardType: TextInputType.emailAddress,
+                                                    decoration: InputDecoration(
+                                                      hintText: "Email",
+                                                      labelText: "Email",
+                                                      labelStyle: TextStyle(color: color3, fontSize: 16),
+                                                      enabledBorder: OutlineInputBorder(
+                                                          borderRadius: BorderRadius.all(Radius.circular(7)),
+                                                          borderSide: BorderSide(
+                                                              color: color3,
+                                                              width: 2
+                                                          )
+                                                      ),
+                                                      focusedBorder: OutlineInputBorder(
+                                                        borderRadius: BorderRadius.all(Radius.circular(7)),
                                                       ),
                                                     ),
-                                                    SizedBox(height: 9.0),
-                                                    Container(
-                                                      width: 290,
-                                                      height: 48,
-                                                      child: TextField(
-                                                        controller: secondSurname,
-                                                        cursorColor: color3,
-                                                        decoration: InputDecoration(
-                                                          hintText: "Segundo Apellido",
-                                                          labelText: "Segundo Apellido",
-                                                          labelStyle: TextStyle(color: color3, fontSize: 16),
-                                                          enabledBorder: OutlineInputBorder(
-                                                              borderRadius: BorderRadius.all(Radius.circular(7)),
-                                                              borderSide: BorderSide(
-                                                                  color: color3,
-                                                                  width: 2
-                                                              )
-                                                          ),
-                                                          focusedBorder: OutlineInputBorder(
-                                                            borderRadius: BorderRadius.all(Radius.circular(7)),
-                                                          ),
-                                                        ),
-                                                      ),
-                                                    ),
-                                                    SizedBox(height: 5.0),
-                                                    Container(
-                                                      width: 290,
-                                                      height: 48,
-                                                      child: TextField(
-                                                        controller: phone,
-                                                        cursorColor: color3,
-                                                        decoration: InputDecoration(
-                                                          hintText: "Nro. Celular",
-                                                          labelText: "Nro. Celular",
-                                                          labelStyle: TextStyle(color: color3, fontSize: 16),
-                                                          enabledBorder: OutlineInputBorder(
-                                                              borderRadius: BorderRadius.all(Radius.circular(7)),
-                                                              borderSide: BorderSide(
-                                                                  color: color3,
-                                                                  width: 2
-                                                              )
-                                                          ),
-                                                          focusedBorder: OutlineInputBorder(
-                                                            borderRadius: BorderRadius.all(Radius.circular(7)),
-                                                          ),
-                                                        ),
-                                                      ),
-                                                    ),
-                                                    SizedBox(height: 8.0),
-                                                    Row(
-                                                      mainAxisAlignment: MainAxisAlignment.center,
-                                                      children: [
-                                                        Text("Datos de Cuenta",style: TextStyle(fontWeight: FontWeight.bold,fontStyle: FontStyle.italic),),
-                                                      ],
-                                                    ),
-                                                    SizedBox(height: 9.0),
-                                                    Container(
-                                                      width: 290,
-                                                      height: 48,
-                                                      child: TextField(
-                                                        controller: username,
-                                                        cursorColor: color3,
-                                                        decoration: InputDecoration(
-                                                          hintText: "Nombre de Usuario",
-                                                          labelText: "Nombre de Usuario",
-                                                          labelStyle: TextStyle(color: color3, fontSize: 16),
-                                                          enabledBorder: OutlineInputBorder(
-                                                              borderRadius: BorderRadius.all(Radius.circular(7)),
-                                                              borderSide: BorderSide(
-                                                                  color: color3,
-                                                                  width: 2
-                                                              )
-                                                          ),
-                                                          focusedBorder: OutlineInputBorder(
-                                                            borderRadius: BorderRadius.all(Radius.circular(7)),
-                                                          ),
-                                                        ),
-                                                      ),
-                                                    ),
-                                                    SizedBox(height: 5.0),
-                                                    Container(
-                                                      width: 290,
-                                                      height: 48,
-                                                      child: TextField(
-                                                        controller: email,
-                                                        cursorColor: color3,
-                                                        keyboardType: TextInputType.emailAddress,
-                                                        decoration: InputDecoration(
-                                                          hintText: "Email",
-                                                          labelText: "Email",
-                                                          labelStyle: TextStyle(color: color3, fontSize: 16),
-                                                          enabledBorder: OutlineInputBorder(
-                                                              borderRadius: BorderRadius.all(Radius.circular(7)),
-                                                              borderSide: BorderSide(
-                                                                  color: color3,
-                                                                  width: 2
-                                                              )
-                                                          ),
-                                                          focusedBorder: OutlineInputBorder(
-                                                            borderRadius: BorderRadius.all(Radius.circular(7)),
-                                                          ),
-                                                        ),
-                                                      ),
-                                                    ),
-                                                    /*
+                                                  ),
+                                                ),
+                                                /*
                                                     SizedBox(height: 9.0),
                                                     Container(
                                                       width: 290,
@@ -319,64 +313,67 @@ class _ProfilePageState extends State<ProfilePage> {
                                                       ),
                                                     ),
                                                     */
-                                                  ],
-                                                ),
-                                              ),
+                                              ],
                                             ),
-                                            actions: [
-                                              FlatButton(
-                                                child: Text("Aceptar", style: TextStyle(color: color3, fontSize: 18),),
-                                                onPressed: (){
-                                                  bool check = Submit();
-                                                  if(check){
-                                                    userRepository.updateUser(user);
-                                                    //Navigator.of(context).pop();
-                                                    Navigator.push(context, MaterialPageRoute(builder: (context)=> BottomNavbar()));
-                                                    print("Se Guardo los datos ");
-                                                  }else{
-                                                    print("No Se Guardo los datos ");
-                                                  }
-                                                },
-                                              ),
-                                              FlatButton(
-                                                child: Text("Cancelar", style: TextStyle(color: Colors.red, fontSize: 18),),
-                                                onPressed: (){
-                                                  Navigator.of(context).pop();
-                                                },
-                                              ),
-                                            ],
-                                          );
-                                        }
-                                    );
-                                  },
-                                  shape: RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(20.0),
-                                  ),
-                                  child: Text("Editar Perfil", style: TextStyle(
-                                    color: color1,
-                                    fontSize: 15,
-                                    fontWeight: FontWeight.bold,
-                                    fontStyle: FontStyle.italic,
-                                  ),),
+                                          ),
+                                        ),
+                                        actions: [
+                                          FlatButton(
+                                            child: Text("Aceptar", style: TextStyle(color: color3, fontSize: 18),),
+                                            onPressed: (){
+                                              bool check = Submit();
+                                              if(check){
+                                                userRepository.updateUser(user);
+                                                //Navigator.of(context).pop();
+                                                Navigator.push(context, MaterialPageRoute(builder: (context)=> BottomNavbar()));
+                                                print("Se Guardo los datos ");
+                                              }else{
+                                                print("No Se Guardo los datos ");
+                                              }
+                                            },
+                                          ),
+                                          FlatButton(
+                                            child: Text("Cancelar", style: TextStyle(color: Colors.red, fontSize: 18),),
+                                            onPressed: (){
+                                              Navigator.of(context).pop();
+                                            },
+                                          ),
+                                        ],
+                                      );
+                                    }
+                                );
+                              },
+                              child: Container(
+                                height: size!.width*0.13,
+                                width: size!.width*0.25,
+                                child: Column(
+                                  children: [
+                                    Icon(Icons.edit,color: color1,size: size!.width*0.08,),
+                                    Text("Editar Perfil",style: TextStyle(color: color1,fontSize: size!.width*0.035),),
+                                  ],
                                 ),
                               ),
                             ),
-                            // GestureDetector(
-                            //   onTap: ()async{
-                            //     await Token().delToken();
-                            //     Navigator.of(context).pushNamedAndRemoveUntil('/screen1', (Route<dynamic> route) => false);
-                            //   },
-                            //   child: Container(
-                            //     height: size!.width*0.13,
-                            //       width: size!.width*0.14,
-                            //       child: Column(
-                            //         children: [
-                            //           Icon(Icons.exit_to_app,color: color12,size: size!.width*0.12,),
-                            //           // Text("Salir",style: TextStyle(color: color1,fontSize: size!.width*0.02),),
-                            //         ],
-                            //       ),
-                            //     ),
-                            // ),
+                            SizedBox(
+                              width: 60,
+                            ),
+                            GestureDetector(
+                               onTap: ()async{
+                                 await Token().delToken();
+                                 Navigator.of(context).pushNamedAndRemoveUntil('/screen1', (Route<dynamic> route) => false);
+                               },
+                               child: Container(
+                                 height: size!.width*0.13,
+                                   width: size!.width*0.25,
+                                   child: Column(
+                                     children: [
+                                       Icon(Icons.exit_to_app,color: color12,size: size!.width*0.08,),
+                                       Text("Salir",style: TextStyle(color: color1,fontSize: size!.width*0.035),),
+                                     ],
+                                   ),
+                                 ),
+                            ),
+                            /*
                             IconButton(
                                 onPressed: ()async{
                                   await Token().delToken();
@@ -384,7 +381,7 @@ class _ProfilePageState extends State<ProfilePage> {
                                 },
                                 icon: Icon(Icons.exit_to_app,color: color12,size: size!.width*0.09,)
                             )
-
+                            */
                           ],
                         ),
                       ],
