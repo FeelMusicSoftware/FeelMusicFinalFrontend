@@ -1,6 +1,4 @@
-
 import 'dart:io';
-
 import 'package:audioplayers/audioplayers.dart';
 import 'package:feel_music_final/Colors.dart';
 import 'package:feel_music_final/Components/MusicCard.dart';
@@ -76,7 +74,6 @@ class _TestPageState extends State<TestPage> {
           child: ListView.builder(
               itemCount: listMusic.length,
               itemBuilder:(context,index){
-                // print(listMusic.length);
                 var _songName=listMusic[index].path.split("/");
                 var _artistPart=_songName.last.split("-");
                 if(_artistPart.first!=_artistPart.last){
