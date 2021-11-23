@@ -1,7 +1,7 @@
 import 'package:feel_music_final/Components/music_box_widget.dart';
 import 'package:feel_music_final/Components/SearchWidget.dart';
 import 'package:feel_music_final/Models/User.dart';
-import 'package:feel_music_final/Pages/ProfilePage.dart';
+import 'package:feel_music_final/Pages/profile_page.dart';
 import 'package:flutter/material.dart';
 
 import '../Colors.dart';

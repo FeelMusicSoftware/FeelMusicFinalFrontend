@@ -1,5 +1,5 @@
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
-import 'package:feel_music_final/Pages/ProfilePage.dart';
+import 'package:feel_music_final/Pages/profile_page.dart';
 import 'package:feel_music_final/Pages/ScanPage.dart';
 
 import 'package:feel_music_final/Pages/principal_page.dart';
