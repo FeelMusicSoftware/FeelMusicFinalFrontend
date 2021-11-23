@@ -55,10 +55,10 @@ class _ProfilePageState extends State<ProfilePage> {
 
   @override
   void initState(){
-    // TODO: implement initState
+
     super.initState();
     _initSharedPreferences();
-    print("Sidebar");
+    // print("Sidebar");
 
   }
   @override

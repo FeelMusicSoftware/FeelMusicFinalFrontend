@@ -18,6 +18,7 @@ class _PlayerPageState extends State<PlayerPage> {
   String currentTime='0:00', endTime='0:00';
   double minimunValue=0.0,maximunValue=0.0, currentValue=0.0;
   bool isPlaying=false;String _artist="None";
+  List<String> _images=["assets/images/album.jpg","assets/images/album2.jpg","assets/album3.jpg","assets/album4.jpg","assets/album5.jpg","assets/album6.jpg","assets/album7.jpg"];
   var _songName;var _artistPart;
 
   @override
@@ -85,7 +86,8 @@ class _PlayerPageState extends State<PlayerPage> {
                 maxRadius: size.width*0.3,
                 backgroundImage:
                 // backgroundImage: widget.songInfo.albumArtwork==null?
-                AssetImage("assets/images/img1.jpg"),
+                AssetImage(_images[1]),
+                // this.widget.index<6?AssetImage(_images[this.widget.index]):AssetImage(_images[1]),
               ),
                 // FileImage(File(widget.songInfo.albumArtwork)),),
               Container(

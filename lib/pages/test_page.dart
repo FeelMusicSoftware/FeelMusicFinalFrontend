@@ -58,10 +58,20 @@ class _TestPageState extends State<TestPage> {
   Widget build(BuildContext context) {
     final Size size = MediaQuery.of(context).size;
     return Scaffold(
+      appBar: AppBar(
+        // toolbarHeight: size.height * 0.08,
+        backgroundColor: color3,
+        elevation: 5,
+        title: Text(
+          "FeelMusic",
+          style: TextStyle(fontSize: size.height * 0.036,color: color1),
+        ),
+        centerTitle: true,
+      ),
       backgroundColor: color4,
       body: SingleChildScrollView(
         child: Container(
-          height: size.height,
+          height: size.height*0.81,
           width: size.width,
           child: ListView.builder(
               itemCount: listMusic.length,

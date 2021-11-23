@@ -143,8 +143,8 @@ class _LoginPageState extends State<LoginPage> {
                         });
                         _confirm= await userRepository.signIn(userMail);
                         if(_confirm){
-
-                          Navigator.push(context, MaterialPageRoute(builder: (_)=>BottomNavbar()));
+                          Navigator.of(context).pushNamedAndRemoveUntil('/screen2', (Route<dynamic> route) => false);
+                          // Navigator.push(context, MaterialPageRoute(builder: (_)=>BottomNavbar()));
                         }
                         else{
                           print("Correo o password erroneo");
