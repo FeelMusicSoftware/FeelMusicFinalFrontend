@@ -46,7 +46,7 @@ class _MyAppState extends State<MyApp> {
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
 
-      home: log==0?LoadingPage():log==1?BottomNavbar():LoginPage(),
+      home: log==0?LoginPage():log==1?BottomNavbar():LoadingPage(),
       routes: <String, WidgetBuilder> {
         '/screen1': (BuildContext context) => new LoginPage(),
         '/screen2' : (BuildContext context) => new BottomNavbar(),
