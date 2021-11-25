@@ -145,7 +145,7 @@ class _LoginPageState extends State<LoginPage> {
                         _confirm= await userRepository.signIn(userMail);
                         if(_confirm){
                           user = (await userRepository.databyUserId())!;
-                          // await GlobalUser.save(user);
+                          await GlobalUser.save(user);
                           // User profile=await GlobalUser.read();
                           // print("da objeto global");
                           // print(profile.name);
