@@ -3,10 +3,12 @@ import 'package:feel_music_final/pages/loading_page.dart';
 import 'package:feel_music_final/pages/login_page.dart';
 import 'package:feel_music_final/pages/BottomNavBar.dart';
 import 'package:flutter/material.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 import 'Repositories/Token.dart';
 
 void main() {
+  SharedPreferences.setMockInitialValues({});
   runApp(const MyApp());
 }
 
@@ -52,6 +54,7 @@ class _MyAppState extends State<MyApp> {
         '/screen2' : (BuildContext context) => new BottomNavbar(),
         '/screen3' : (BuildContext context) => new LoadingPage(),
       },
+
     );
   }
 }

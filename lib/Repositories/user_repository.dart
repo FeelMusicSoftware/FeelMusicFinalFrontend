@@ -23,7 +23,7 @@ class UserRepository {
       );
       if(response.statusCode==200){
         var tok=json.decode(response.body)["token"];
-        // print("DoneConfirmUser SIIIIIIIIII");
+        print("DoneConfirmUser SIIIIIIIIII");
         await Token().setToken(tok);
         // var log=await Token().getToken();
         // print("el token es");
@@ -201,7 +201,7 @@ class UserRepository {
       if(response.statusCode==200){
         await GlobalUser.remove();
         await GlobalUser.save(user);
-        // print("da objeto global");
+        print("da objeto global");
         // User profile=await GlobalUser.read();
         // print(profile.name);
         return user;
