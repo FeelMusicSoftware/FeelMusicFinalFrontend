@@ -336,7 +336,8 @@ class _ProfilePageState extends State<ProfilePage> {
                                               if(check){
                                                 userRepository.updateUser(user);
                                                 //Navigator.of(context).pop();
-                                                Navigator.push(context, MaterialPageRoute(builder: (context)=> BottomNavbar()));
+                                                //Navigator.push(context, MaterialPageRoute(builder: (context)=> BottomNavbar()));
+                                                Navigator.of(context).pushNamedAndRemoveUntil('/screen2', (Route<dynamic> route) => false);
                                                 print("Se Guardo los datos ");
                                               }else{
                                                 print("No Se Guardo los datos ");
